@@ -1,8 +1,16 @@
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/shared/Navbar";
+import Footer from "../components/shared/Footer";
+
 const MainLayout = () => {
   return (
-    <div>
-      <h1>Hello I am from main layouts</h1>
-    </div>
+    <>
+      <Navbar />
+      <div className=" h-screen">
+        <Outlet />
+      </div>
+      <Footer />
+    </>
   );
 };
 

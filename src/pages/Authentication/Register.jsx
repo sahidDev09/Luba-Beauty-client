@@ -50,7 +50,7 @@ const Register = () => {
 
   return (
     <div className="lg:px-40 md:px-10 lg:py-8 mainLogin p-2 md:p-0">
-      <div className="bg-[#edaead65] w-[500px] rounded-xl mx-auto backdrop:blur-3xl">
+      <div className="bg-[#edaead65] md:w-[500px] w-full rounded-xl mx-auto backdrop:blur-3xl">
         <div className="flex flex-col  gap-3 p-10 justify-between">
           <img
             className=" w-32 flex mx-auto"

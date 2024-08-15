@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.mainHero{
-    background-image: url("./assest/image/luba-beautybg.png");
+.mainHero {
+  background-image: url("./assest/image/luba-beautybg.png");
 }
+
+.mainLogin {
+  background-image: url("./assest//image/lubabg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+

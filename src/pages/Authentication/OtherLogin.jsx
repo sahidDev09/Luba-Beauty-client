@@ -29,7 +29,7 @@ const OtherLogin = () => {
     <div className=" my-2">
       <div
         onClick={() => handleSocial(googleLogin)}
-        className=" cursor-pointer google bg-slate-400 hover:bg-slate-700 hover:border border-green-500 p-2 rounded-md flex items-center gap-2">
+        className=" cursor-pointer google bg-[#d5868573] hover:bg-[#d58685] hover:border p-2 rounded-md flex items-center gap-2">
         <div className=" flex gap-2 items-center mx-auto">
           <div className=" p-2 bg-slate-200 w-10 rounded-md">
             <img src={google} alt="" />

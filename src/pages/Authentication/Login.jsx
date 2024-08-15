@@ -6,6 +6,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { FaArrowRightLong } from "react-icons/fa6";
 import OtherLogin from "./OtherLogin";
 import { useForm } from "react-hook-form";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { loginUser } = useContext(AuthContext);
@@ -34,11 +35,15 @@ const Login = () => {
 
   return (
     <div className="lg:px-40 md:px-10 lg:py-8 mainLogin p-2 md:p-0 md:min-h-screen flex items-center">
-      <div className=" bg-slate-200 md:w-[500px] w-full rounded-xl mx-auto">
+      <div className=" bg-[#edaead65] md:w-[500px] w-full rounded-xl mx-auto">
         <div className=" gap-3 p-10 justify-between">
-          <img className=" w-40 flex mx-auto" src="https://i.ibb.co/58dnSPv/COSMETICS-1.png" alt="" />
+          <img
+            className=" w-40 flex mx-auto"
+            src="https://i.ibb.co/58dnSPv/COSMETICS-1.png"
+            alt=""
+          />
           <hr className=" border-gray-400 my-2" />
-          <h1 className=" text-3xl font-bold text-center">Login</h1>
+          <h1 className=" text-xl font-bold text-center">Login</h1>
           <div className="flex flex-col gap-3">
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -91,19 +96,19 @@ const Login = () => {
                 </div>
                 <span onClick={() => setShowPass(!showPass)}>
                   {showPass ? (
-                    <IoMdEyeOff className=" text-xl text-gray-600"></IoMdEyeOff>
-                  ) : (
                     <IoMdEye className="text-xl text-gray-600"></IoMdEye>
+                  ) : (
+                    <IoMdEyeOff className=" text-xl text-gray-600"></IoMdEyeOff>
                   )}
                 </span>
               </label>
 
-              <a className="text-sm ml-4 text-red-600 cursor-pointer">
+              <a className="text-sm ml-4 text-red-200 cursor-pointer">
                 Forget your password
               </a>
               <input
                 type="submit"
-                className="grow mt-6 btn btn-success w-full rounded-full text-white"
+                className="grow mt-6 btn bg-[#d58685] hover:bg-[#bf6261] border-none w-full rounded-full text-white"
                 value="Login"
               />
             </form>
@@ -123,7 +128,7 @@ const Login = () => {
                 <FaArrowRightLong></FaArrowRightLong>
               </span>
               <Link to="/register">
-                <button className=" font-bold text-blue-400">Register</button>
+                <button className=" font-bold text-white">Register</button>
               </Link>
             </h1>
           </div>

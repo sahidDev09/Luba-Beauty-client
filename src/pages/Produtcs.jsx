@@ -1,20 +1,35 @@
 import { useEffect, useState } from "react";
 import ProductsCards from "../components/ProductsCards";
 
-const Produtcs = () => {
+const Products = () => {
   const [products, setProducts] = useState([]);
+  const [searchProd, setSearchProd] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:8000/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      });
   }, []);
 
+  const filteredProducts = products.filter((product) =>
+    product.Product_Name.toLowerCase().includes(searchProd.toLowerCase())
+  );
+
   return (
-    <div className=" bg-pink-50">
+    <div className="bg-pink-50 min-h-screen">
       <div className="flex justify-end container mx-auto py-4">
         <label className="input input-bordered flex items-center gap-2">
-          <input type="text" className="grow focus:outline-none" placeholder="Search"  />
+          <input
+            type="text"
+            className="grow focus:outline-none"
+            placeholder="Search"
+            value={searchProd}
+            onChange={(e) => setSearchProd(e.target.value)}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -28,13 +43,26 @@ const Produtcs = () => {
           </svg>
         </label>
       </div>
-      <div className=" grid md:grid-cols-3 gap-5 md:py-7 container mx-auto p-2">
-        {products.map((product, index) => (
-          <ProductsCards key={index} products={product}></ProductsCards>
-        ))}
-      </div>
+
+      {loading ? (
+        <div className=" h-[700px]">
+          <div className="text-center py-10">
+            <span className="loading loading-infinity loading-lg scale-[7] mt-10"></span>
+          </div>
+          <h1 className=" text-2xl font-bold text-center">
+            Your Data is Loading{" "}
+          </h1>
+          <p className=" text-center font-semibold">Please wait sometime..</p>
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-3 gap-5 md:py-7 container mx-auto p-2">
+          {filteredProducts.map((product, index) => (
+            <ProductsCards key={index} products={product}></ProductsCards>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default Produtcs;
+export default Products;

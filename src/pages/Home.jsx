@@ -9,13 +9,15 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://luba-beauty-server.vercel.app/products")
+    fetch("http://localhost:8000/homeProducts")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
         setLoading(false);
       });
   }, []);
+
+  console.log(products);
 
   return (
     <div>
@@ -30,7 +32,7 @@ const Home = () => {
       {loading ? (
         <div className=" h-full">
           <div className="text-center py-10">
-            <span className="loading loading-infinity loading-lg scale-[7] mt-10"></span>
+            <span className="loading loading-infinity loading-lg scale-[3] mt-10"></span>
           </div>
           <h1 className=" text-2xl font-bold text-center">
             Your Data is Loading{" "}

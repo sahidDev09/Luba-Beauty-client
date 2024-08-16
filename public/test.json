@@ -1,0 +1,35 @@
+[
+  {
+    "Product_Name": "Hydrating Face Cream",
+    "Product_Image": "https://i.ibb.co/cbjPtNb/Face-Cream.png",
+    "Description": "A hydrating face cream that nourishes the skin, leaving it soft and smooth.",
+    "Price": 25.99,
+    "Category": "Skincare",
+    "Brand": "GlowSkin",
+    "Ratings": 4.7,
+    "Creation_date_time": "2024-08-15T10:00:00Z",
+    "card_bg": "#7d6b55"
+  },
+  {
+    "Product_Name": "Matte Lipstick - Ruby Red",
+    "Product_Image": "https://i.ibb.co/dfbnnrt/Matte-Lipstick.png",
+    "Description": "A long-lasting matte lipstick in a vibrant ruby red shade.",
+    "Price": 15.49,
+    "Category": "Makeup",
+    "Brand": "LipCharm",
+    "Ratings": 4.5,
+    "Creation_date_time": "2024-08-15T10:05:00Z",
+    "card_bg": "#773c3f"
+  },
+  {
+    "Product_Name": "Men's Anti-Aging Serum",
+    "Product_Image": "https://i.ibb.co/Yd93WC6/Men-s-Anti-Aging-Serum.png",
+    "Description": "An anti-aging serum designed specifically for men's skin.",
+    "Price": 30,
+    "Category": "Boys Skincare",
+    "Brand": "ManCare",
+    "Ratings": 4.8,
+    "Creation_date_time": "2024-08-15T10:10:00Z",
+    "card_bg": "#4c5b39"
+  }
+]

@@ -21,7 +21,7 @@ const Landing = () => {
           </Link>
         </div>
         <div className="h-full md:inline hidden">
-          <img className=" h-full" src={women} alt="" />
+          <img className=" min-h-full" src={women} alt="" />
         </div>
       </div>
     </div>

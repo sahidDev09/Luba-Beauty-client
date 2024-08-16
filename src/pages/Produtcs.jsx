@@ -7,7 +7,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/products")
+    fetch("https://luba-beauty-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

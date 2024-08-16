@@ -133,13 +133,7 @@ const Navbar = () => {
         {user ? (
           <div className="navbar-end">
             <div className="flex gap-2">
-              <div className="form-control hidden md:inline">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="input input-bordered w-24 md:w-auto"
-                />
-              </div>
+              
               <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}

@@ -40,7 +40,7 @@ const Home = () => {
           <p className=" text-center font-semibold">Please wait sometime..</p>
         </div>
       ) : (
-        <div className=" container mx-auto grid grid-cols-3 gap-5 my-4">
+        <div className=" container mx-auto grid md:grid-cols-3 gap-5 my-4 p-2 md:p-0">
           {products.slice(0, 3).map((product, index) => (
             <ProductsCards key={index} products={product}></ProductsCards>
           ))}

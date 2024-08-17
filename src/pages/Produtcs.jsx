@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import ProductsCards from "../components/ProductsCards";
 
@@ -7,12 +8,13 @@ const Products = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedBrand, setSelectedBrand] = useState("all");
   const [totalPages, setTotalPages] = useState(1);
   const productsPerPage = 6;
 
   const fetchProducts = (page = 1) => {
     fetch(
-      `http://localhost:8000/products?page=${page}&limit=${productsPerPage}&search=${searchQuery}&category=${selectedCategory}`
+      `http://localhost:8000/products?page=${page}&limit=${productsPerPage}&search=${searchQuery}&category=${selectedCategory}&brand=${selectedBrand}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -28,10 +30,15 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts(currentPage);
-  }, [currentPage, searchQuery, selectedCategory]);
+  }, [currentPage, searchQuery, selectedCategory, selectedBrand]);
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
+    setCurrentPage(1);
+  };
+
+  const handleBrandChange = (e) => {
+    setSelectedBrand(e.target.value);
     setCurrentPage(1);
   };
 
@@ -52,19 +59,40 @@ const Products = () => {
       <div className="container mx-auto py-4">
         <div className="flex justify-between items-center">
           {/* Category Filter */}
-          <select
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-            className="select select-bordered">
-            <option value="all">All Categories</option>
-            <option value="Skincare">Skincare</option>
-            <option value="Boys Skincare">Boys Skincare</option>
-            <option value="Hair Treatment">Hair Treatment</option>
-            <option value="Makeup">Makeup</option>
-            <option value="Body Wash">Body Wash</option>
-            <option value="Earrings">Earrings</option>
-            <option value="Necklace">Necklace</option>
-          </select>
+          <div>
+            <select
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+              className="select select-bordered">
+              <option value="all">All Categories</option>
+              <option value="Skincare">Skincare</option>
+              <option value="Boys Skincare">Boys Skincare</option>
+              <option value="Hair Treatment">Hair Treatment</option>
+              <option value="Makeup">Makeup</option>
+              <option value="Body Wash">Body Wash</option>
+              <option value="Earrings">Earrings</option>
+              <option value="Necklace">Necklace</option>
+            </select>
+          </div>
+
+          {/* brand code */}
+
+          <div>
+            <select
+              value={selectedBrand}
+              onChange={handleBrandChange}
+              className="select select-bordered">
+              <option value="all">All Brands</option>
+              <option value="GlowSkin">GlowSkin</option>
+              <option value="LipCharm">LipCharm</option>
+              <option value="ManCare">ManCare</option>
+              <option value="AquaClean">AquaClean</option>
+              <option value="HairGlow">HairGlow</option>
+              <option value="EleganceJewels">EleganceJewels</option>
+              <option value="LuxeGems">LuxeGems</option>
+              <option value="ScrubFresh">ScrubFresh</option>
+            </select>
+          </div>
 
           {/* Search bar */}
           <div className="flex items-center gap-2">
@@ -108,9 +136,9 @@ const Products = () => {
             ))}
           </div>
           {/* Pagination Controls */}
-          <div className="flex justify-center my-4">
+          <div className="flex justify-center py-4 ">
             <button
-              className="btn btn-outline"
+              className="btn bg-[#e58c8a] text-white "
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}>
               Previous
@@ -119,7 +147,7 @@ const Products = () => {
               Page {currentPage} of {totalPages}
             </span>
             <button
-              className="btn btn-outline"
+              className="btn bg-[#e58c8a] text-white"
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}>
               Next

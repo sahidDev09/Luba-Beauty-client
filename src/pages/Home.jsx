@@ -9,7 +9,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8000/homeProducts")
+    fetch(`${import.meta.env.VITE_API_URL}/homeProducts`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

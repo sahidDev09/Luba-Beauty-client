@@ -17,7 +17,9 @@ const Products = () => {
 
   const fetchProducts = (page = 1) => {
     fetch(
-      `http://localhost:8000/products?page=${page}&limit=${productsPerPage}&search=${searchQuery}&category=${selectedCategory}&brand=${selectedBrand}&minPrice=${minPrice}&maxPrice=${maxPrice}&sortBy=${sortBy}`
+      `${
+        import.meta.env.VITE_API_URL
+      }/products?page=${page}&limit=${productsPerPage}&search=${searchQuery}&category=${selectedCategory}&brand=${selectedBrand}&minPrice=${minPrice}&maxPrice=${maxPrice}&sortBy=${sortBy}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -82,9 +84,9 @@ const Products = () => {
   return (
     <div className="bg-pink-50 min-h-screen">
       <div className="container mx-auto py-4">
-        <div className="md:flex items-center justify-between ">
+        <div className="md:flex items-center justify-between">
           {/* Category Filter && brand */}
-          <div className=" flex items-center gap-4  w-fit mx-auto">
+          <div className="flex items-center gap-4 w-fit mx-auto">
             <div>
               <select
                 value={selectedCategory}
@@ -143,7 +145,7 @@ const Products = () => {
             </div>
           </div>
 
-          {/* Sorting && serach */}
+          {/* Sorting && search */}
           <div className="md:flex gap-4 items-center w-fit mx-auto">
             <div className="flex items-center gap-2 my-2">
               <select
@@ -189,6 +191,18 @@ const Products = () => {
             Your Data is Loading
           </h1>
           <p className="text-center font-semibold">Please wait sometime...</p>
+        </div>
+      ) : products.length === 0 ? (
+        <div className="text-center py-10">
+          <img
+            className="w-96 mx-auto"
+            src="https://i.ibb.co/MVTjLjp/nodata-1.png"
+            alt=""
+          />
+          <h1 className="text-2xl font-bold">No Products Found</h1>
+          <p className="text-center font-semibold">
+            Try reload the website or please wait sometime.
+          </p>
         </div>
       ) : (
         <div>

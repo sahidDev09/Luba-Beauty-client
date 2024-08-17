@@ -2,6 +2,8 @@
 
 Luba Beauty is an online cosmetics shop where users can browse and purchase cosmetics from the comfort of their home, taking advantage of great pricing deals. The platform offers a wide range of features, including category and brand filters, price range filtering, price sorting from low to high, and a search functionality. Users can also register and log in for a personalized shopping experience.
 
+![Home page](https://i.ibb.co/grsJ7rG/SCR-20240817-mmlj.jpg)
+
 ## Features
 
 - **Browse Products:** Explore a variety of cosmetics by category and brand.
@@ -37,7 +39,7 @@ Luba Beauty is an online cosmetics shop where users can browse and purchase cosm
 
 ## Live Site
 
-Check out the live site: [Luba Beauty](your-live-site-link)
+Check out the live site: [Luba Beauty]("https://lubabeauty-8277b.web.app")
 
 ## Installation
 

@@ -16,7 +16,7 @@ const Landing = () => {
             Discover our curated selection of cosmetics and self-care products
             designed to bring out your natural glow. Unveil your beauty with us!
           </p>
-          <Link>
+          <Link to="/products">
             <button className=" btn">New Arrival</button>
           </Link>
         </div>

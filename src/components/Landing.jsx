@@ -3,11 +3,11 @@ import women from "../assest/image/woment2.png";
 
 const Landing = () => {
   return (
-    <div className="mainHero h-[85vh] bg-cover bg-center bg-no-repeat p-5 md:p-0">
-      <div className=" container mx-auto grid md:grid-cols-2 items-center h-full">
-        <div className=" flex flex-col gap-3">
+    <div className="mainHero max-h-[85vh] bg-cover bg-center bg-no-repeat p-5 md:p-0">
+      <div className="container mx-auto grid md:grid-cols-2 items-center h-full">
+        <div className="flex flex-col gap-3">
           <img
-            className=" w-96"
+            className="w-96"
             src="https://i.ibb.co/58dnSPv/COSMETICS-1.png"
             alt="logg"
           />
@@ -17,11 +17,15 @@ const Landing = () => {
             designed to bring out your natural glow. Unveil your beauty with us!
           </p>
           <Link to="/products">
-            <button className=" btn">New Arrival</button>
+            <button className="btn">New Arrival</button>
           </Link>
         </div>
-        <div className="h-full md:inline hidden">
-          <img className=" min-h-full" src={women} alt="" />
+        <div className="h-full md:inline hidden overflow-hidden flex items-center justify-center">
+          <img
+            className="h-full w-auto object-cover object-center"
+            src={women}
+            alt=""
+          />
         </div>
       </div>
     </div>

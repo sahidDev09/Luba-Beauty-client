@@ -4,6 +4,9 @@
 
 .mainHero {
   background-image: url("./assest/image/luba-beautybg.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .mainLogin {

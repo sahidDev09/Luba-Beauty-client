@@ -9,12 +9,14 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedBrand, setSelectedBrand] = useState("all");
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(500);
   const [totalPages, setTotalPages] = useState(1);
   const productsPerPage = 6;
 
   const fetchProducts = (page = 1) => {
     fetch(
-      `http://localhost:8000/products?page=${page}&limit=${productsPerPage}&search=${searchQuery}&category=${selectedCategory}&brand=${selectedBrand}`
+      `http://localhost:8000/products?page=${page}&limit=${productsPerPage}&search=${searchQuery}&category=${selectedCategory}&brand=${selectedBrand}&minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -30,22 +32,49 @@ const Products = () => {
 
   useEffect(() => {
     fetchProducts(currentPage);
-  }, [currentPage, searchQuery, selectedCategory, selectedBrand]);
+  }, [
+    currentPage,
+    searchQuery,
+    selectedCategory,
+    selectedBrand,
+    minPrice,
+    maxPrice,
+  ]);
+
+  // category func
 
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
     setCurrentPage(1);
   };
 
+  //brand  fucn
+
   const handleBrandChange = (e) => {
     setSelectedBrand(e.target.value);
     setCurrentPage(1);
   };
 
+  //search func
+
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
     setCurrentPage(1);
   };
+
+  //price range code
+
+  const handleMinPriceChange = (e) => {
+    setMinPrice(e.target.value);
+    setCurrentPage(1);
+  };
+
+  const handleMaxPriceChange = (e) => {
+    setMaxPrice(e.target.value);
+    setCurrentPage(1);
+  };
+
+  //pagination func
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -94,11 +123,36 @@ const Products = () => {
             </select>
           </div>
 
+          {/* price range min to max slider */}
+
+          <div className=" flex gap-3 items-center">
+            <div className="flex items-center gap-1">
+              <label htmlFor="">Min</label>
+              <input
+                type="number"
+                placeholder="$0"
+                value={minPrice}
+                onChange={handleMinPriceChange}
+                className="select select-bordered w-[120px] focus:outline-none"
+              />
+            </div>
+            <div className="flex items-center gap-1">
+              <label htmlFor="">Max</label>
+              <input
+                type="number"
+                placeholder="$500"
+                value={maxPrice}
+                onChange={handleMaxPriceChange}
+                className="select select-bordered w-[120px] focus:outline-none"
+              />
+            </div>
+          </div>
+
           {/* Search bar */}
           <div className="flex items-center gap-2">
             <input
               type="text"
-              className="input input-bordered"
+              className="input input-bordered focus:outline-none"
               placeholder="Search"
               value={searchQuery}
               onChange={handleSearchChange}
